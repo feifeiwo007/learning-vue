@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">{{message}} {{message+ message}}
+        <div v-bind:id="message"></div>
+    
+    <ul>
+        <li v-for = "item in list">
+            <span v-if="!item.del">{{item.title}}</span>
+            <span v-else style="text-decoration: line-through">{{item.title}}</span>
+            <button v-show="!item.del">delete</button>
+        </li>
+    </ul>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script >
+/* 这边是新建一个vue 了之后定义的一个变量 对应于body 里面id 是app 的div
+var vm = new Vue({
+    el: '#app',
+    data: {
+        message: 'hello world',
+        item: {
+            title: "class",
+            del: false
+        }
+    }
+})
+*/
+/* 这边是新建一个vue 了之后定义的一个列表 对应于body 里面 li 里面的 v-for  */
+var vm = new Vue({
+    el: '#app',
+    data: {
+        message: 'hello world',
+        list: [{
+            title: "class1",
+            del: false
+        },{
+            title: "class2",
+            del: true
+        }
+        ]
+    }
+})
+
+</script>
+</body>
+</html>
