@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <input v-model="message"> <!--v-model 语法糖 用来做双向绑定 即两边同时变化 本质上还是单向数据流-->
+    <!--非简写形式 如下，v-model就是value 和input 结合起来的简写形式-->
+    <input :value="message" @input="handlechange">
     {{message}} {{message+ message}}
     <div v-bind:id="message"></div>
     <todo-list>
@@ -53,6 +56,9 @@ export default {
     }
   },
   methods: {
+    handlechange(e){
+      this.message=e.target.value
+    },
     handleDelete(val) {
       console.log("handledelete", val);
     },
