@@ -13,15 +13,17 @@
         <todo-list>
             <template v-slot>
                 <!--这边默认是一个slot 的插槽 没有名字-->
-                <todo-item @delete="handleDelete" v-for="item in list" data v-bind:title="item.title" :del="item.del">
+                <todo-item @delete="handleDelete" v-for="item in list" v-bind:title="item.title" :del="item.del">
                     <!-- 老版本2.5-->
                     <!--<span slot="preico"> preico</span>
                     <span slot="endico"> endico</span> -->
                     <!-- 新版本 需要定义一个template 具名插槽-->
-                    <template v-slot:preico="{avalue}">  <!-- 这边是一个作用域插槽 可以理解成返回组件的函数 返回的就是 testvalue-->
+                    <template v-slot:preico="{avalue}">
+                        <!-- 这边是一个作用域插槽 可以理解成返回组件的函数 返回的就是 testvalue-->
                         <span> preico {{avalue}}</span>
                     </template>
-                    <template v-slot:endico> <!--如果把这块删掉的话 就会使用默认插槽的内容-->
+                    <template v-slot:endico>
+                        <!--如果把这块删掉的话 就会使用默认插槽的内容-->
                         <span> endico</span>
                     </template>
                 </todo-item>
