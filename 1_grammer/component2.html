@@ -29,7 +29,7 @@
                 <span v-if="!del">{{title}}</span>
                 <span v-else style="text-decoration: line-through">{{title}}</span>
                 <button v-show="!del" @click="handleClick">delete</button>
-            </li> `     
+            </li> `     /*v-show 只是隐藏 在cosole 里面还是会出现的*/
         ,
         data: function(){
             return {             
